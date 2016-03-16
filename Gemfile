@@ -16,6 +16,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-generators'
 gem 'geocoder'
 gem 'gmaps4rails'
+
+# for adding image file
+gem 'paperclip'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

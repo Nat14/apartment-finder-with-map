@@ -21,6 +21,15 @@ class ApartmentsController < ApplicationController
   def edit
   end
 
+  def show
+    @apartment = Apartment.find(params[:id])
+      @hash = Gmaps4rails.build_markers(@apartment) do |apartment, marker|
+        marker.lat apartment.latitude
+        marker.lng apartment.longitude
+        marker.infowindow apartment.address
+      end
+  end
+
   # POST /apartments
   # POST /apartments.json
   def create
@@ -69,6 +78,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:latitude, :longitude, :address, :name, :contact)
+      params.require(:apartment).permit(:latitude, :longitude, :address, :name, :contact, :image)
     end
 end
