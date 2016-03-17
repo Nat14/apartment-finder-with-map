@@ -40,6 +40,8 @@
           <% else %>
             <li><%= link_to 'Log In', new_user_session_path %></li>
           <% end %>
+          <li><a href="#"><%= current_user.email %></a></li>
+
 
         </ul>
       </div>

@@ -15,7 +15,7 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/new
   def new
-    @apartment = Apartment.new
+    @apartment = current_user.apartments.new
   end
 
   # GET /apartments/1/edit
@@ -34,7 +34,7 @@ class ApartmentsController < ApplicationController
   # POST /apartments
   # POST /apartments.json
   def create
-    @apartment = Apartment.new(apartment_params)
+    @apartment = current_user.apartments.new(apartment_params)
 
     respond_to do |format|
       if @apartment.save
