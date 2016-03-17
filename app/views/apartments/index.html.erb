@@ -2,11 +2,9 @@
 
 <h1>Listing Apartments</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Latitude</th>
-      <th>Longitude</th>
       <th>Address</th>
       <th>Name</th>
       <th>Contact</th>
@@ -17,8 +15,6 @@
   <tbody>
     <% @apartments.each do |apartment| %>
       <tr>
-        <td><%= apartment.latitude %></td>
-        <td><%= apartment.longitude %></td>
         <td><%= apartment.address %></td>
         <td><%= apartment.name %></td>
         <td><%= apartment.contact %></td>
