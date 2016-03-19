@@ -20,6 +20,9 @@ gem 'gmaps4rails'
 # for adding image file
 gem 'paperclip'
 
+# for logon by twitter
+gem 'omniauth-twitter'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

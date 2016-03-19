@@ -40,7 +40,9 @@
           <% else %>
             <li><%= link_to 'Log In', new_user_session_path %></li>
           <% end %>
-          <li><a href="#"><%= current_user.email %></a></li>
+          <li><%= link_to 'Log In with Twitter', user_omniauth_authorize_path(:twitter) %></li>
+
+          <li><a href="#"><%= current_user.nil? ? "You need to log in" : current_user.email %></a></li>
 
 
         </ul>
