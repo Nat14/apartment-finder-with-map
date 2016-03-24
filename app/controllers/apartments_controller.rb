@@ -1,5 +1,5 @@
 class ApartmentsController < ApplicationController
-  before_action :set_apartment, only: [:show, :edit, :update, :destroy]
+  before_action :set_apartment, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /apartments
@@ -15,7 +15,11 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/new
   def new
-    @apartment = current_user.apartments.new
+    if user_signed_in?
+      @apartment = current_user.apartments.new
+    else
+      redirect_to apartments_path
+    end
   end
 
   # GET /apartments/1/edit
@@ -75,6 +79,9 @@ class ApartmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_apartment
       @apartment = Apartment.find(params[:id])
+      if !user_signed_in? || current_user.id != @apartment.user.id
+        redirect_to new_user_session_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

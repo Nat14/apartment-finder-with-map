@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @apartment.latitude %>
-</p>
+<% if current_user.id == @apartment.user.id %>
+  <%= button_to 'Edit', edit_apartment_path(@apartment), method: :get %>
+<% end %>
+<br/>
+<%= button_to 'Back', apartments_path, method: :get %>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @apartment.longitude %>
-</p>
+<br/>
 
 <p>
   <strong>Address:</strong>
@@ -24,9 +22,6 @@
   <strong>Contact:</strong>
   <%= @apartment.contact %>
 </p>
-
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
 
 <%= link_to image_tag(@apartment.image.url(:large)), @apartment.image.url %>
 
